@@ -1,0 +1,238 @@
+{
+	"compiler": {
+		"version": "0.8.7+commit.e28d00a7"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "GlobalPaymentContractIsCreated",
+				"type": "event"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					},
+					{
+						"internalType": "string",
+						"name": "name",
+						"type": "string"
+					}
+				],
+				"name": "addBank",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					},
+					{
+						"internalType": "string",
+						"name": "first_name",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "last_name",
+						"type": "string"
+					},
+					{
+						"internalType": "bool",
+						"name": "KYCstatus",
+						"type": "bool"
+					},
+					{
+						"internalType": "uint256",
+						"name": "balance",
+						"type": "uint256"
+					}
+				],
+				"name": "addPerson",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bool",
+						"name": "pay_receive",
+						"type": "bool"
+					},
+					{
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "changeBalanceOfPerson",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					}
+				],
+				"name": "getPersonBalance",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					}
+				],
+				"name": "getPersonName",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "accountPersonSender",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "accountBankSender",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "accountBankBeneficiary",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "accountPersonBeneficiary",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "FX_rate",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "transferamount",
+						"type": "uint256"
+					}
+				],
+				"name": "initiateGlobalPaymentContract",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "contract GlobalPaymentContract",
+						"name": "globalPaymentContract",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "accountPersonSender",
+						"type": "address"
+					}
+				],
+				"name": "submitTransfer",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/ApplicationContract.sol": "ApplicationContract"
+		},
+		"evmVersion": "london",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/ApplicationContract.sol": {
+			"keccak256": "0x93f68d2b548255e801128df574c92f841d165ca943f26a00365872d91cff73ae",
+			"urls": [
+				"bzz-raw://0ea9a50b32b8eec709c5c662b1a3fc122a2c10267e8a7359d0dc6a51488e76e1",
+				"dweb:/ipfs/QmUxZwbP3o1TEBZTcnTHo1oz5AqpyHttjWkn5aMPgSwSFD"
+			]
+		},
+		"contracts/GlobalPayment.sol": {
+			"keccak256": "0xa550a8ec5b7dcda00370aff98e5881e649b550c635befe0bc0b503d6f325bb35",
+			"urls": [
+				"bzz-raw://85584e96700e5af49b1f96e6446ac20450ab64a47320eaf894c507c3ac68fb59",
+				"dweb:/ipfs/QmNk88N6cEoHzv78deDkE8g8JhvQzhG1YS7Ut7SVssq9dY"
+			]
+		}
+	},
+	"version": 1
+}
