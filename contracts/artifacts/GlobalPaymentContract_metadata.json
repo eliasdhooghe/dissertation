@@ -19,12 +19,12 @@
 					},
 					{
 						"internalType": "address",
-						"name": "_beneficiaryID",
+						"name": "_beneficiaryBankID",
 						"type": "address"
 					},
 					{
 						"internalType": "address",
-						"name": "_beneficiaryBankID",
+						"name": "_beneficiaryID",
 						"type": "address"
 					},
 					{
@@ -52,6 +52,19 @@
 					}
 				],
 				"name": "beneficiaryReceived",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "print",
 				"type": "event"
 			},
 			{
@@ -253,10 +266,10 @@
 	},
 	"sources": {
 		"contracts/GlobalPayment.sol": {
-			"keccak256": "0xa14ca382ab21477d321cf5e3a016d2f6a06d13347dbd083f2e866b3cfc0c7cd9",
+			"keccak256": "0xa87a037fca390040587e28118982432b7e58ce1bdd37a7f2c010b6447c3b23eb",
 			"urls": [
-				"bzz-raw://e406e1fefde459cae09efd01fc4243ad96a7ebb200de2889e69433f1f4d0dd7d",
-				"dweb:/ipfs/QmQ9kKoztEhBbTbRCmm8qNYs1BHfWxsCKwgYVLVJscLPFV"
+				"bzz-raw://bb364e190a1a4a0b65ca601aa660890df45ff8eb9905c5fc35000b8059783f75",
+				"dweb:/ipfs/QmeWNzjh4BwJMxr8mMfipi9GLzRuhuahrLDzLsBTh63C33"
 			]
 		}
 	},

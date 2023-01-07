@@ -7,22 +7,21 @@ contract GlobalPaymentContract {
     address public beneficiaryBankID;
     uint256 public FX_rate;
     uint256 public transferamount;
-    string public payout_conditions="conditions";
-    bool payerHasPaid= false;
-    bool beneficiaryHasReceived = false; 
-    
+    string public payout_conditions = "conditions";
+    bool internal payerHasPaid = false;
+    bool internal beneficiaryHasReceived = false;
+    event print(address);
     event senderPaid(bool);
     event beneficiaryReceived(bool);
 
     constructor(
-    address  _senderID,
-    address  _senderBankID,
-    address  _beneficiaryID,
-    address _beneficiaryBankID,
-    uint256  _FX_rate,
-    uint256  _transferamount)
-    public 
-    {
+        address _senderID,
+        address _senderBankID,
+        address _beneficiaryBankID,
+        address _beneficiaryID,
+        uint256 _FX_rate,
+        uint256 _transferamount
+    ) {
         senderID = _senderID;
         senderBankID = _senderBankID;
         beneficiaryID = _beneficiaryID;
@@ -31,62 +30,31 @@ contract GlobalPaymentContract {
         transferamount = _transferamount;
     }
 
-    function getTransferAmountBasedOnExchangeRate() public view returns(uint256){
+    function getTransferAmountBasedOnExchangeRate() public view returns (uint256) {
         return transferamount * FX_rate;
     }
+
     function submitTransfer() public {
-        payerHasPaid= true;
+        //emit print(msg.sender);
+        //require(msg.sender == senderBankID,"No permission to submit the transfer");
+        payerHasPaid = true;
         emit senderPaid(true);
     }
-    function getAddress() public view returns(address){
+
+    function getAddress() public view returns (address) {
         return address(this);
     }
-    function checkPayerHadPaid() public view returns(bool){
+
+    function checkPayerHadPaid() public view returns (bool) {
         return payerHasPaid;
-    }   
-    function checkBeneficiaryHasReceived() public view returns(bool){
+    }
+
+    function checkBeneficiaryHasReceived() public view returns (bool) {
         return beneficiaryHasReceived;
     }
+
     function receiveFunds() public {
-        beneficiaryHasReceived= true;
+        beneficiaryHasReceived = true;
         emit beneficiaryReceived(true);
     }
-
-
-
-
-    
-
-
-    
-
-
-    // function getSenderID() public returns(uint) {
-    //     return senderID;
-    // }
-    // function getBeneficiaryID() public returns(uint) {
-    //     return beneficiaryID;
-    // }
-    // function getFX_rate() public returns(uint) {
-    //     return FX_rate;
-    // }
-    // function getTransferamount() public returns(uint) {
-    //     return transferamount;
-    // }
-    // function setSenderID(uint _senderID) public {
-    //     senderID = _senderID;
-    // }
-    // function setBeneficiaryID(uint _beneficiaryID) public {
-    //     beneficiaryID = _beneficiaryID;
-    // }
-    // function setFX_rate(uint _FX_rate) public {
-    //     FX_rate = _FX_rate;
-    // }
-    // function setTransferamount(uint _transferamount) public {
-    //     transferamount = _transferamount;
-    // }
-
 }
-
-
-

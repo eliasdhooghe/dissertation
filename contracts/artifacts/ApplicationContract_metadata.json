@@ -24,6 +24,19 @@
 				"type": "event"
 			},
 			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "print",
+				"type": "event"
+			},
+			{
 				"inputs": [
 					{
 						"internalType": "address",
@@ -77,6 +90,24 @@
 			{
 				"inputs": [
 					{
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					},
+					{
+						"internalType": "string",
+						"name": "name",
+						"type": "string"
+					}
+				],
+				"name": "addRegulator",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
 						"internalType": "bool",
 						"name": "pay_receive",
 						"type": "bool"
@@ -105,11 +136,30 @@
 						"type": "address"
 					}
 				],
+				"name": "checkKYCstatusPerson",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "KYC_status",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					}
+				],
 				"name": "getPersonBalance",
 				"outputs": [
 					{
 						"internalType": "uint256",
-						"name": "",
+						"name": "balance",
 						"type": "uint256"
 					}
 				],
@@ -128,7 +178,7 @@
 				"outputs": [
 					{
 						"internalType": "string",
-						"name": "",
+						"name": "name",
 						"type": "string"
 					}
 				],
@@ -179,10 +229,36 @@
 						"internalType": "contract GlobalPaymentContract",
 						"name": "globalPaymentContract",
 						"type": "address"
-					},
+					}
+				],
+				"name": "receiveFunds",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
 					{
 						"internalType": "address",
-						"name": "accountPersonSender",
+						"name": "account",
+						"type": "address"
+					},
+					{
+						"internalType": "bool",
+						"name": "status",
+						"type": "bool"
+					}
+				],
+				"name": "setKYCstatusperson",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "contract GlobalPaymentContract",
+						"name": "globalPaymentContract",
 						"type": "address"
 					}
 				],
@@ -194,7 +270,97 @@
 		],
 		"devdoc": {
 			"kind": "dev",
-			"methods": {},
+			"methods": {
+				"addBank(address,string)": {
+					"details": "This function adds a Bank to the environment (list of banks)",
+					"params": {
+						"account": "Address of the bank",
+						"name": "Name of the bank"
+					}
+				},
+				"addPerson(address,string,string,bool,uint256)": {
+					"details": "This function adds a Person to the environment (list of persons)",
+					"params": {
+						"KYCstatus": "Status of the KYC procedure of the person",
+						"account": "Address of the person",
+						"balance": "Balance of the person",
+						"first_name": "First name of the person",
+						"last_name": "Last name of the person"
+					}
+				},
+				"addRegulator(address,string)": {
+					"details": "This function adds a Regulator to the environment (list of regulators)",
+					"params": {
+						"account": "Address of the regulator",
+						"name": "Name of the regulator"
+					}
+				},
+				"changeBalanceOfPerson(bool,address,uint256)": {
+					"details": "This function changes the balance amount of a person",
+					"params": {
+						"account": "Address of the person",
+						"amount": "Amount of the balance change",
+						"pay_receive": "Decides if the person is paying money (true) or receiving money (false)"
+					}
+				},
+				"checkKYCstatusPerson(address)": {
+					"details": "This function checkes the KYC status of a person",
+					"params": {
+						"account": "Address of the person"
+					}
+				},
+				"constructor": {
+					"details": "This constructor is used to initiate the actors needed to perform the two use-cases. Actors are linked with their addresses."
+				},
+				"getPersonBalance(address)": {
+					"details": "This function gets the balance amount of a person",
+					"params": {
+						"account": "Address of the person"
+					},
+					"returns": {
+						"balance": "Balance of the person"
+					}
+				},
+				"getPersonName(address)": {
+					"details": "This function gets the name of a person",
+					"params": {
+						"account": "Address of the person"
+					},
+					"returns": {
+						"name": "Name of the person"
+					}
+				},
+				"initiateGlobalPaymentContract(address,address,address,address,uint256,uint256)": {
+					"details": "GLOBAL PAYMENT: This function initiates a GlobalPaymentContract",
+					"params": {
+						"FX_rate": "Exchange rate between the two currencies",
+						"accountBankBeneficiary": "Address of the beneficiary (bank)",
+						"accountBankSender": "Address of the sender (bank)",
+						"accountPersonBeneficiary": "Address of the beneficiary (person)",
+						"accountPersonSender": "Address of the sender (person)",
+						"transferamount": "The transferamount of the global payment"
+					}
+				},
+				"receiveFunds(address)": {
+					"details": "GLOBAL PAYMENT: This function receive the funds in the process of a global payment contract",
+					"params": {
+						"globalPaymentContract": "Address of the GlobalPaymentContract"
+					}
+				},
+				"setKYCstatusperson(address,bool)": {
+					"details": "This function changes the KYC status of a person",
+					"params": {
+						"account": "Address of the person",
+						"status": "New KYC status of the person"
+					}
+				},
+				"submitTransfer(address)": {
+					"details": "GLOBAL PAYMENT: This function submits the transfer in the process of a global payment contract",
+					"params": {
+						"globalPaymentContract": "Address of the GlobalPaymentContract"
+					}
+				}
+			},
 			"version": 1
 		},
 		"userdoc": {
@@ -220,17 +386,18 @@
 	},
 	"sources": {
 		"contracts/ApplicationContract.sol": {
-			"keccak256": "0x93f68d2b548255e801128df574c92f841d165ca943f26a00365872d91cff73ae",
+			"keccak256": "0x26040540c4bad26100b41dd1963d617b64ee9335b792d2a5c5eb66a9659441e8",
+			"license": "UNLICENSED",
 			"urls": [
-				"bzz-raw://0ea9a50b32b8eec709c5c662b1a3fc122a2c10267e8a7359d0dc6a51488e76e1",
-				"dweb:/ipfs/QmUxZwbP3o1TEBZTcnTHo1oz5AqpyHttjWkn5aMPgSwSFD"
+				"bzz-raw://a66d742a5c92a5ae71fb3ff8dabf27462c92b6a88803392a9407d51596f365b1",
+				"dweb:/ipfs/QmfUy2rqSXU7D67JcB6pyLUqdfL15sS6RYdnZpWXx9TYHq"
 			]
 		},
 		"contracts/GlobalPayment.sol": {
-			"keccak256": "0xa550a8ec5b7dcda00370aff98e5881e649b550c635befe0bc0b503d6f325bb35",
+			"keccak256": "0xa87a037fca390040587e28118982432b7e58ce1bdd37a7f2c010b6447c3b23eb",
 			"urls": [
-				"bzz-raw://85584e96700e5af49b1f96e6446ac20450ab64a47320eaf894c507c3ac68fb59",
-				"dweb:/ipfs/QmNk88N6cEoHzv78deDkE8g8JhvQzhG1YS7Ut7SVssq9dY"
+				"bzz-raw://bb364e190a1a4a0b65ca601aa660890df45ff8eb9905c5fc35000b8059783f75",
+				"dweb:/ipfs/QmeWNzjh4BwJMxr8mMfipi9GLzRuhuahrLDzLsBTh63C33"
 			]
 		}
 	},

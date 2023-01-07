@@ -1,7 +1,7 @@
 {
   "name": "testsetup",
   "version": "1.0.0",
-  "description": "Blockchain testsetup Powered By Ethereum",
+  "description": "Blockchain testsetup",
   "main": "truffle-config.js",
   "directories": {
     "test": "test"
@@ -20,10 +20,11 @@
     "chai-bignumber": "^2.0.2",
     "lite-server": "^2.3.0",
     "nodemon": "^1.17.3",
-    "truffle": "^5.4.9",
+    "truffle": "^5.6.8",
     "web3": "1.5.2"
   },
   "dependencies": {
+    "ethdoc": "^0.2.6",
     "web3": "^1.7.0"
   }
 }

@@ -19,12 +19,12 @@
 					},
 					{
 						"internalType": "address",
-						"name": "_beneficiaryID",
+						"name": "_beneficiaryBankID",
 						"type": "address"
 					},
 					{
 						"internalType": "address",
-						"name": "_beneficiaryBankID",
+						"name": "_beneficiaryID",
 						"type": "address"
 					},
 					{
@@ -51,15 +51,34 @@
 						"type": "bool"
 					}
 				],
-				"name": "payerPaid",
+				"name": "beneficiaryReceived",
 				"type": "event"
 			},
 			{
-				"inputs": [],
-				"name": "EmitEventPayerPaid",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "print",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"name": "senderPaid",
+				"type": "event"
 			},
 			{
 				"inputs": [],
@@ -102,6 +121,32 @@
 			},
 			{
 				"inputs": [],
+				"name": "checkBeneficiaryHasReceived",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "checkPayerHadPaid",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
 				"name": "getAddress",
 				"outputs": [
 					{
@@ -137,6 +182,13 @@
 					}
 				],
 				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "receiveFunds",
+				"outputs": [],
+				"stateMutability": "nonpayable",
 				"type": "function"
 			},
 			{
@@ -214,10 +266,10 @@
 	},
 	"sources": {
 		"contracts\\GlobalPayment.sol": {
-			"keccak256": "0xa550a8ec5b7dcda00370aff98e5881e649b550c635befe0bc0b503d6f325bb35",
+			"keccak256": "0xa87a037fca390040587e28118982432b7e58ce1bdd37a7f2c010b6447c3b23eb",
 			"urls": [
-				"bzz-raw://85584e96700e5af49b1f96e6446ac20450ab64a47320eaf894c507c3ac68fb59",
-				"dweb:/ipfs/QmNk88N6cEoHzv78deDkE8g8JhvQzhG1YS7Ut7SVssq9dY"
+				"bzz-raw://bb364e190a1a4a0b65ca601aa660890df45ff8eb9905c5fc35000b8059783f75",
+				"dweb:/ipfs/QmeWNzjh4BwJMxr8mMfipi9GLzRuhuahrLDzLsBTh63C33"
 			]
 		}
 	},

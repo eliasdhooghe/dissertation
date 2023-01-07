@@ -2,7 +2,6 @@ const persons = [];
 const banks = [];
 const addresses = ['0x6616a4f8d35A2Cbe3b4C0427C428BD3aF3ca52Fa','0xCF305Bd0861b5727Fe08FEFdF8FE93871CC4ACC2','0x52C9fc3556EA3A18628F4D156604e733015064C2','0x3C5389B061C808eEE0165866253097F02A39A3C8']
 const connection = new Web3.providers.HttpProvider("http://127.0.0.1:7545");
-let contracts
 App = {
     
     contracts: [],    
@@ -90,37 +89,32 @@ App = {
         }
         console.log(banks)
     },
-    // https://medium.com/metamask/https-medium-com-metamask-breaking-change-injecting-web3-7722797916a8
+    
     connectToBlockchain: async () => {
         window.addEventListener('load', async () => {
-            // Modern dapp browsers...
             if (window.ethereum) {
                 window.web3 = new Web3(ethereum);
                 console.log("Loaded....")
                 try {
-                    // Request account access if needed
                     await ethereum.enable();
-                    // Acccounts now exposed
                     web3.eth.sendTransaction({/* ... */});
                     console.log("Connected to the blockchain network")
                 } catch (error) {
-                    // User denied account access...
                 }
                 
             }
-            // Legacy dapp browsers...
             else if (window.web3) {
                 window.web3 = new Web3(web3.currentProvider);
-                // Acccounts always exposed
                 web3.eth.sendTransaction({/* ... */});
                 console.log("Connected to the blockchain network")
             }
-            // Non-dapp browsers...
             else {
-                console.log('Non-Ethereum browser detected. You should consider trying MetaMask!');
+                console.log('Non-Ethereum browser detected.');
             }
             });
-  },
+  }
+  
+  ,
   loadAccounts: async () =>{
     App.account = await ethereum.request({method: 'eth_accounts'});
     console.log(App.account);
