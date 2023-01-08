@@ -125,7 +125,7 @@
 				"outputs": [
 					{
 						"internalType": "bool",
-						"name": "",
+						"name": "checkIfBeneficiaryHasReceived",
 						"type": "bool"
 					}
 				],
@@ -138,7 +138,7 @@
 				"outputs": [
 					{
 						"internalType": "bool",
-						"name": "",
+						"name": "checkIfPayerHasPaid",
 						"type": "bool"
 					}
 				],
@@ -151,7 +151,7 @@
 				"outputs": [
 					{
 						"internalType": "address",
-						"name": "",
+						"name": "addressGlobalPaymentContract",
 						"type": "address"
 					}
 				],
@@ -164,7 +164,7 @@
 				"outputs": [
 					{
 						"internalType": "uint256",
-						"name": "",
+						"name": "newtransferamount",
 						"type": "uint256"
 					}
 				],
@@ -240,7 +240,49 @@
 		],
 		"devdoc": {
 			"kind": "dev",
-			"methods": {},
+			"methods": {
+				"checkBeneficiaryHasReceived()": {
+					"details": "This functions checks if the beneficiary has received the funds.",
+					"returns": {
+						"checkIfBeneficiaryHasReceived": "Boolean indicating if beneficiary has received."
+					}
+				},
+				"checkPayerHadPaid()": {
+					"details": "This functions checks if the sender has submitted the transfer.",
+					"returns": {
+						"checkIfPayerHasPaid": "Boolean indicating if payer has paid."
+					}
+				},
+				"constructor": {
+					"details": "This constructor is used to initiate a global payment smart contract.",
+					"params": {
+						"_FX_rate": "Exchange rate between the different currencies",
+						"_beneficiaryBankID": "Address of the Bank of the Beneficiary",
+						"_beneficiaryID": "Address of the Beneficiary",
+						"_senderBankID": "Address of the Bank of the Sender",
+						"_senderID": "Address of the Sender",
+						"_transferamount": "The transferamount of the global payment"
+					}
+				},
+				"getAddress()": {
+					"details": "This functions returns the address of the GlobalPaymentContract",
+					"returns": {
+						"addressGlobalPaymentContract": "Address of the GlobalPaymentContract"
+					}
+				},
+				"getTransferAmountBasedOnExchangeRate()": {
+					"details": "This function calculates new transferamount based on the exchange rate.",
+					"returns": {
+						"newtransferamount": "New transferamount"
+					}
+				},
+				"receiveFunds()": {
+					"details": "This functions indicates that the funds have been received. Set boolean beneficiaryHasReceived and emit event beneficiaryReceived."
+				},
+				"submitTransfer()": {
+					"details": "This functions indicates that the transfer has been submitted. Set boolean payerHasPaid and emit event senderPaid."
+				}
+			},
 			"version": 1
 		},
 		"userdoc": {
@@ -266,10 +308,10 @@
 	},
 	"sources": {
 		"contracts/GlobalPayment.sol": {
-			"keccak256": "0xa87a037fca390040587e28118982432b7e58ce1bdd37a7f2c010b6447c3b23eb",
+			"keccak256": "0xd8d1532ee723f07da81d308d29a0e338ab28c8ea8b8d5166b61c2198f3c61add",
 			"urls": [
-				"bzz-raw://bb364e190a1a4a0b65ca601aa660890df45ff8eb9905c5fc35000b8059783f75",
-				"dweb:/ipfs/QmeWNzjh4BwJMxr8mMfipi9GLzRuhuahrLDzLsBTh63C33"
+				"bzz-raw://9092170b06c3bc13b203caaee93bd16192236a8b4666802f939f352789ebd227",
+				"dweb:/ipfs/QmcsBfqjKdUoVxv7p3e1cFgPD4FMKtV1h7AWUpr9NuueoU"
 			]
 		}
 	},

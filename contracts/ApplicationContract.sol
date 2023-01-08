@@ -29,7 +29,7 @@ contract ApplicationContract {
     event print(address);
     
     /**
-    * @dev This constructor is used to initiate the actors needed to perform the two use-cases. Actors are linked with their addresses.
+    * @dev This constructor is used to initiate financing environment with some default actors. Actors are linked with their addresses.
     */
     constructor()  {
         addPerson(0x6616a4f8d35A2Cbe3b4C0427C428BD3aF3ca52Fa,"Alice","Doe",true,1000);

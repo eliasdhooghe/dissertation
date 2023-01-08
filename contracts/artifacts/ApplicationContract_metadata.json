@@ -394,10 +394,10 @@
 			]
 		},
 		"contracts/GlobalPayment.sol": {
-			"keccak256": "0xa87a037fca390040587e28118982432b7e58ce1bdd37a7f2c010b6447c3b23eb",
+			"keccak256": "0x708c0f3058f6742737e7bf120829a4e93a47c4421dd4cb895f5062350776d19b",
 			"urls": [
-				"bzz-raw://bb364e190a1a4a0b65ca601aa660890df45ff8eb9905c5fc35000b8059783f75",
-				"dweb:/ipfs/QmeWNzjh4BwJMxr8mMfipi9GLzRuhuahrLDzLsBTh63C33"
+				"bzz-raw://519ef274f5b7f0afa0ff6dc96c5f4634a2b037d54afe1f7550997ed4561a4c14",
+				"dweb:/ipfs/Qmbjvkpcf6NxeAJENy4UGueUfjcoY3qRxmMNvVhs2p5Ff9"
 			]
 		}
 	},
